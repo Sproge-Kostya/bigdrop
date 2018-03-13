@@ -87,6 +87,9 @@ nav{
         border-left: 1px solid #ccc;
     }
 }
+.social-network{
+    display: inline-block;
+}
 .dropdown-search{
     display:none;
 }
@@ -144,10 +147,30 @@ article{
         }
         .description{
             width: 50%;
+            padding:30px 20px 20px;
+            .category{
+                text-transform: uppercase;
+                font-size:12px;
+                color:#a2a2a2;
+            }
             .title{
                 text-align:left;
                 font-size:16px;
-                margin-top:15px;
+                margin:15px 0 25px;
+            }
+            .read-more{
+                text-transform: uppercase;
+                color:#0f0f0f;
+                position: relative;
+                padding-right:15px;
+                &:after{
+                    content:"\e900";
+                    font-family: 'bigdroptz' !important;
+                    position: absolute;
+                    right:0;
+                    top:50%;
+                    transform: translate(100%,-50%);
+                }
             }
         }
     }
