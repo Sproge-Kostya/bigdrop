@@ -8,28 +8,34 @@ var AppJS = {
     },
     ready: function(){
         AppJS.regHundlers(AppJS.hundlers,true);
-        $('.banner').slick({
-		  dots: false,
-		  infinite: false,
-		  speed: 500,
-		});
+        $(".banner-img").slick({
+            autoplay: true,
+            autoplaySpeed:5000,
+            dots: false,
+            arrows:false,
+            speed:2000,
+        });
+        $(".dropdown-menu").fadeOut();
     },
     init:function(){$(document).ready(AppJS.ready);},
     hundlers : {
+        "body:click"                        : function(e){ AppJS.clickBody(e); },
         "[href]:click"                      : function(e){ AppJS.clickHref(e, this);},
+        ".dropdown-toggle:click"            : function() { AppJS.DropDown(this);},
+        ".close:click"                      : function() { $(this).closest(".modal-contant").fadeOut("slow", function(){$(this).closest(".overley").remove()});}
     },
     clickHref : function(e, el) {
-        $(".nav-menu li").removeClass("active");
-        $(el).closest("li").addClass("active");
         var url = $(el).attr('href');
         if( url.slice(0, 4) !== 'http'){
-            console.log(e, el);
             e.preventDefault();
-            if(url[0] !== "#"){
-                $.get({url: url, writeHistory: true, notBlock: true });
-                if(!$(el).hasClass('js-noScrollLink')) $('html, body').animate({scrollTop: 0}, 300);
-            }
+            AppJS.Rqst(url);
         }
+    },
+    clickBody: function(e) {
+          if (!$(e.target).closest(".dropdown").length) {
+            $('.dropdown-menu').fadeOut();
+          }
+          e.stopPropagation();
     },
     openCurrency: function(elements){
         console.log(elements);
@@ -42,17 +48,26 @@ var AppJS = {
             $(currencyBlock).removeClass('active');
         }
     },
-    ModalBox: function(elements){
-        var $this = $(elements);
+    DropDown: function(el){
+        $(".dropdown-menu:visible").fadeOut();
+        if($(el).closest(".dropdown").find(".dropdown-menu:visible").length){
+            $(el).closest(".dropdown").find(".dropdown-menu").fadeOut();
+        }else{
+            $(el).closest(".dropdown").find(".dropdown-menu").fadeIn();
+        }
+    },
+    Rqst: function(url){
         $.ajax({ 
-            url: $this.attr("href"),
-            dataType: "html",
+            url: url,
             success: function(res) {
-                //console.log(res);
-                $(res).appendTo('.bestcours');
-                $("<div class='overley'></div>").appendTo('.bestcours');
-                $('.mdl-content').addClass("active");
-                AppJS.Tabs();
+                console.log(res);
+                if($(res).hasClass("modal-contant")) {
+                    $("<div class='overley'></div>").appendTo('body');
+                    $(res).appendTo('.overley');
+                    setTimeout(function(){
+                        $(".modal-contant").fadeIn("slow");
+                    },100);
+                }
             }
         });
         return false;

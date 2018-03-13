@@ -10,8 +10,8 @@ var concatJs     = require('gulp-concat');
 
 var adminLibsJsArr = [
     'web/js/lib/jquery-2.1.4.min.js',
-    // 'web/js/lib/modules/collapse.js',
     'web/js/lib/slick.js',
+    // 'web/js/lib/AppJS.js',
 ];
 
 

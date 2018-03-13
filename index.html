@@ -6,6 +6,7 @@
     <title>Test</title>
     <link rel="stylesheet" href="web/css/admin.css">
     <script src="web/js/dist/adminLibs.js"></script>
+    <script src="web/js/lib/AppJS.js"></script>
 </head>
 <body>
     <header>
@@ -13,10 +14,13 @@
             <img src="web/img/logo.svg" alt="">
         </a>
         <nav>
+            <button class="dropdown-toggle">
+                <span></span>
+            </button>
             <menu>
-                <li>
-                    <a href="#">About</a>
-                    <ul class="dropdown-search">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About</a>
+                    <ul class="dropdown-menu">
                         <li><a href="#">SERVICES</a></li>
                         <li><a href="#">COMPANIES</a></li>
                         <li><a href="#">OUR TEAM</a></li>
@@ -32,17 +36,17 @@
                     <a href="#">resources</a>
                 </li>
                 <li>
-                    <a href="#">Contact us</a>
+                    <a href="view/modal/contact.php">Contact us</a>
                 </li>
             </menu>
-            <div class="search_pop-up">
-                <a href="#" class="dropdown">
+            <div class="search_pop-up dropdown">
+                <a href="#" class="dropdown-toggle">
                     <span class="icon-search"></span>
                 </a>
-                <div class="dropdown-search">
+                <div class="dropdown-search dropdown-menu">
                     <form action="#">
-                        <label for="">
-                            <input type="search">
+                        <label for="search" class="search">
+                            <input type="search" name="search" placeholder="Search">
                         </label>
                     </form>
                 </div>
@@ -51,14 +55,22 @@
     </header>
     <main>
         <section class="banner">
-            <div class="item">
+            <div class="banner-img">
+                <div class="item">
+                    <img src="web/img/background.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img src="web/img/background.jpg" alt="">
+                </div>
+            </div>
+            <div class="wrapper-baner">
                 <div class="caption-container">
                     <span class="data">20 August 2017</span>
                     <h1 class="title">Kuril Islands</h1>
                 </div>
             </div>
         </section>
-        <section>
+        <section class="container">
             <article class="article-description">
                 <h2 class="title">
                     The Kuril Islands or Kurile Islands in Russia's Sakhalin Oblast region, form a volcanic archipelago that stretches approximately 1,300 km (810 mi) northeast from Hokkaido, Japan, to Kamchatka, Russia, separating the Sea of Okhotsk from the North Pacific Ocean
@@ -79,61 +91,65 @@
                     <span>Danila Antsiferov</span>
                 </div>
             </article>
-            <article class="additional-description">
+        </section>
+        <section>
+            <article class="additional-description container">
                 <h2 class="title">
                     List of main islands
                 </h2>
                 <p>While in Russian sources the islands are mentioned for the first time in 1646, the earliest detailed information about them was provided by the explorer Vladimir Atlasov in 1697. </p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Island</th>
-                            <th>Landing point</th>
-                            <th>Other Cities</th>
-                            <th>Area (km2)</th>
-                            <th>Population</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Shumshu</td>
-                            <td>Baikovo</td>
-                            <td></td>
-                            <td>388.0</td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>Makanrushi</td>
-                            <td>Zakat</td>
-                            <td></td>
-                            <td>50.0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Onekotan</td>
-                            <td>Mussel</td>
-                            <td>Kuroisi, Nemo</td>
-                            <td>425.0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Matua</td>
-                            <td>Sarychevo</td>
-                            <td></td>
-                            <td>52.0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Ushishir</td>
-                            <td>Kraternya</td>
-                            <td>Ryponkicha</td>
-                            <td>5.0</td>
-                            <td>0</td>
-                        </tr>
-                    </tbody>
-                </table>
+            </article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Island</th>
+                        <th>Landing point</th>
+                        <th>Other Cities</th>
+                        <th>Area (km2)</th>
+                        <th>Population</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shumshu</td>
+                        <td>Baikovo</td>
+                        <td></td>
+                        <td>388.0</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Makanrushi</td>
+                        <td>Zakat</td>
+                        <td></td>
+                        <td>50.0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Onekotan</td>
+                        <td>Mussel</td>
+                        <td>Kuroisi, Nemo</td>
+                        <td>425.0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Matua</td>
+                        <td>Sarychevo</td>
+                        <td></td>
+                        <td>52.0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Ushishir</td>
+                        <td>Kraternya</td>
+                        <td>Ryponkicha</td>
+                        <td>5.0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <article class="additional-description container">
                 <p>In the 18th and early 19th centuries, the Kuril Islands were explored by Danila Antsiferov, I. Kozyrevsky, Ivan Yevreinov, Fyodor Luzhin, Martin Shpanberg, Adam Johann von Krusenstern, Vasily Golovnin, and Henry James Snow.</p>
-            </article> 
+            </article>
         </section>
         <section class="latest_posts">
             <h2 class="title">
@@ -146,7 +162,7 @@
                     </div>
                     <div class="description">
                         <a href="#" class="category">Travel</a>
-                        <h3 class="title">Planning the South African Wine Vacation of Your Dreams Got Easier</h3>
+                        <h3 class="title-category">Planning the South African Wine Vacation of Your Dreams Got Easier</h3>
                         <a class="read-more" href="#">READ MORE</a>
                     </div>
                 </li>
@@ -156,7 +172,7 @@
                     </div>
                     <div class="description">
                         <a href="#" class="category">Travel</a>
-                        <h3 class="title">Planning the South African Wine Vacation of Your Dreams Got Easier</h3>
+                        <h3 class="title-category">Planning the South African Wine Vacation of Your Dreams Got Easier</h3>
                         <a class="read-more" href="#">READ MORE</a>
                     </div>
                 </li>
@@ -166,7 +182,7 @@
                     </div>
                     <div class="description">
                         <a href="#" class="category">Travel</a>
-                        <h3 class="title">Planning the South African Wine Vacation of Your Dreams Got Easier</h3>
+                        <h3 class="title-category">Planning the South African Wine Vacation of Your Dreams Got Easier</h3>
                         <a class="read-more" href="#">READ MORE</a>
                     </div>
                 </li>
