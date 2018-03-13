@@ -22,7 +22,19 @@ var AppJS = {
         "body:click"                        : function(e){ AppJS.clickBody(e); },
         "[href]:click"                      : function(e){ AppJS.clickHref(e, this);},
         ".dropdown-toggle:click"            : function() { AppJS.DropDown(this);},
-        ".close:click"                      : function() { $(this).closest(".modal-contant").fadeOut("slow", function(){$(this).closest(".overley").remove()});}
+        ".overley:click"                    : function() { AppJS.closeAllModal();},
+        ".close:click"                      : function() { AppJS.closeAllModal();},
+        ".navbar-toggle:click"              : function() { AppJS.NavBarCollapse(this);}
+    },
+    NavBarCollapse : function(elem){
+        var el = $(elem);
+        $(".navbar-collapse:visible").fadeOut();
+        if(el.closest("nav").find(".navbar-collapse:visible").length){
+            el.closest("nav").find(".navbar-collapse").fadeOut();
+        }else{
+            el.closest("nav").find(".navbar-collapse").fadeIn();
+        }
+
     },
     clickHref : function(e, el) {
         var url = $(el).attr('href');
@@ -30,6 +42,9 @@ var AppJS = {
             e.preventDefault();
             AppJS.Rqst(url);
         }
+    },
+    closeAllModal: function(){
+        $(".modal-contant").fadeOut("slow", function(){$(".overley").remove()});
     },
     clickBody: function(e) {
           if (!$(e.target).closest(".dropdown").length) {
