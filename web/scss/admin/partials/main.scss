@@ -96,7 +96,22 @@ nav{
             li{
                 a{
                     display: block;
-                    padding: 20px 25px;
+                    padding: 20px 50px;
+                    @media (max-width: 991px) {
+                        &{
+                            position: relative;
+                            &:before{
+                                content: "";
+                                position: absolute;
+                                left: 0;
+                                top: 50%;
+                                transform: translate(100%,-50%);
+                                width: 15px;
+                                height: 1px;
+                                background-color: #ffd942;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -109,11 +124,21 @@ nav{
     }
 }
 .dropdown-menu{
-    position: absolute;
-    top: 100%;
-    z-index: 10;
     background-color: rgb(255, 255, 255);
-    left: 0px;
+    @media (min-width: 992px) {
+        &{
+            top: 100%;
+            z-index: 10;
+            position: absolute;
+            left: 0px;
+            li{
+                a{
+                    display: block;
+                    padding: 20px 25px;
+                }
+            }
+        }
+    }
 }
 .navbar-toggle{
     padding: 15px;
@@ -133,13 +158,26 @@ nav{
         position: absolute;
         display: block;
         content: '';
-        transition: all 300ms ease-in-out;
+        transition: all .5s ease-in-out,top .1s linear;
     }
     span:before {
         top: -5px;
     }
     span:after {
         bottom: -5px;
+    }
+    &.open{
+        span{
+            background-color: transparent;
+            &:before{
+                transform: translateX(-50%) rotate(-45deg);
+                top:0;
+            }
+            &:after{
+                transform: translateX(-50%) rotate(45deg);
+                top:0;
+            }
+        }
     }
     @media (min-width: 992px) {
         &{
@@ -161,6 +199,7 @@ nav{
             background-color: #fff;
             & > li{
                 display: flex;
+                flex-direction: column;
                 a{
                     width: 100%;
                     padding: 20px 30px;
@@ -263,18 +302,65 @@ nav{
 .dropdown-search{
     display:none;
     position: absolute;
-    top: 100%;
+    top: 0;
     left: 0;
     z-index: 10;
     width: 100%;
     background: #fff;
-    height: 365px;
+    height:425px;
     form{
         width: 70%;
         position: absolute;
         top: 50%;
         left:50%;
         transform: translate(-50%,-50%);
+    }
+    @media (min-width: 992px) {
+        &{
+            height:465px;
+        }
+    }
+    .close{
+        padding: 10px;
+        border: none;
+        background-color: transparent;
+        border-radius: 50%;
+        position: absolute;
+        right: 55px;
+        top: 35px;
+        @media (max-width: 991px) {
+            &{
+                top: 17px;
+                right: 55px;
+            }
+        }
+        @media (max-width: 767px) {
+            &{
+                right: 15px;
+                top: 17px;
+            }
+        }
+        // transform: translate(-50%,50%);
+        &:after{
+            content:"";
+            position: absolute;
+            top: 50%;
+            left:50%;
+            width: 20px;
+            height: 1px;
+            background-color: #333; 
+            transform: translate(-50%,-50%) rotate(45deg);       
+        }
+        &:before{
+            content:"";
+            position: absolute;
+            top: 50%;
+            left:50%;
+            width: 20px;
+            height: 1px;
+            background-color: #333;
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }
     }
 }
 article{
@@ -409,7 +495,7 @@ table{
     tr:nth-child(2n){
         background-color: #fafbfc;
     }
-    @media (max-width: 992px) {
+    @media (max-width: 768px) {
         &{
             width: 100%;
             th,td{
@@ -428,10 +514,13 @@ table{
     }
 }
 .latest_posts{
+    width: 100%;
+    border-top:1px solid #f1f1f5;
+}
+.list{
     padding:68px 0;
     width: 1200px;
     margin: 0 auto;
-    border-top:1px solid #f1f1f5;
     @media (max-width: 1200px) {
         &{
             width: 100%;
@@ -582,8 +671,8 @@ footer{
     }
 }
 .modal-contant{
-    width: 770px;
-    position: absolute;
+    width: 100%;
+    position: fixed;
     height: auto;
     background-color:#fff;
     top: 50%;
@@ -591,6 +680,9 @@ footer{
     transform: translate(-50%,-50%);
     border:none;
     display: flex;
+    flex-direction:column;
+    z-index: 12;
+    max-height: 80vh;
     .close{
         padding: 10px;
         border: none;
@@ -622,13 +714,13 @@ footer{
         }
     }
     .modal-img{
-        width: 50%;
-        height: auto;
+        width: 100%;
+        height: 100px;
         background: url(../img/background-1.jpg) center no-repeat;
-        background-size: auto 100%;
+        background-size:100% auto;
     }
     .modal-body{
-        width: 50%;
+        width: 100%;
         padding: 65px 70px 75px;
         .title{
             font:500 24px/1 'Work Sans', sans-serif;
@@ -637,7 +729,10 @@ footer{
             display: flex;
             flex-direction:column;
         }
-        textarea { resize: vertical; }
+        textarea {
+            resize: vertical;
+            max-height: 300px;
+        }
         input,
         textarea{
             margin-top: 25px;
@@ -645,7 +740,8 @@ footer{
             text-transform: uppercase;
             border:none;
             border-bottom:1px solid #aeaeae;
-            &.invailid{
+            outline-color: transparent;
+            &.invalid{
                 border-color: #ff0000;
                 color:#ff0000;
             }
@@ -661,6 +757,20 @@ footer{
             font:400 16px/1 'Work Sans', sans-serif;
         }
     }
+    @media (min-width: 992px) {
+        &{
+            width: 770px;
+            flex-direction:row;
+            .modal-img{
+                width: 50%;
+                height: auto;
+                background-size: auto 100%;
+            }
+             .modal-body{
+                width: 50%;
+             }
+        }
+    }
 }
 .overley{
     height: 100%;
@@ -671,7 +781,7 @@ footer{
     right: 0;
     bottom: 0;
     background-color: rgba(255,255,255,.5);
-    z-index: 101;
+    z-index: 10;
     display: block;
     @media (max-width:768px) {
         &{

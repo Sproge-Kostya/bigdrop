@@ -4,7 +4,7 @@
 	</div>
 	<div class="modal-body">
 		<h2 class="title">Contact us</h2>
-		<form action="#">
+		<form action="#" id="contact">
 			<input type="text" placeholder="Name">
 			<input type="text" placeholder="Phone">
 			<input type="text" placeholder="Email">
