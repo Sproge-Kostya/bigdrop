@@ -80,7 +80,7 @@ header{
     }
 }
 nav{
-    menu{
+    ul{
         display: inline-block;
         text-transform: uppercase;
         & > li{
@@ -640,7 +640,7 @@ footer{
         nav{
             flex-direction: column;
         }
-        menu{
+        ul{
             display:flex;
             justify-content: space-around;
             flex-wrap:wrap;
@@ -681,7 +681,7 @@ footer{
     border:none;
     display: flex;
     flex-direction:column;
-    z-index: 12;
+    z-index: 9999;
     max-height: 80vh;
     .close{
         padding: 10px;
@@ -721,7 +721,7 @@ footer{
     }
     .modal-body{
         width: 100%;
-        padding: 65px 70px 75px;
+        padding: 15px 35px 25px;
         .title{
             font:500 24px/1 'Work Sans', sans-serif;
         }
@@ -767,7 +767,8 @@ footer{
                 background-size: auto 100%;
             }
              .modal-body{
-                width: 50%;
+                 width: 50%;
+                 padding: 65px 70px 75px;
              }
         }
     }
@@ -781,7 +782,7 @@ footer{
     right: 0;
     bottom: 0;
     background-color: rgba(255,255,255,.5);
-    z-index: 10;
+    z-index: 999;
     display: block;
     @media (max-width:768px) {
         &{

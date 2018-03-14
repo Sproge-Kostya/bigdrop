@@ -41,6 +41,7 @@ var AppJS = {
 
     },
     ModalBox: function(){
+	     AppJS.closeAllModal();
         if(!$(".overley").length){
             $("<div class='overley'></div>").appendTo('body');
             $(".modal-contant").fadeIn("slow");

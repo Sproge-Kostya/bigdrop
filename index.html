@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <link rel="stylesheet" href="web/css/admin.css">
     <script src="web/js/dist/adminLibs.js"></script>
@@ -17,7 +17,7 @@
             <button class="navbar-toggle">
                 <span></span>
             </button>
-            <menu class="navbar-collapse">
+            <ul class="navbar-collapse">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">About <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -38,7 +38,7 @@
                 <li>
                     <a class="mdl" href="view/modal/contact.php">Contact us</a>
                 </li>
-            </menu>
+            </ul>
             <div class="search_pop-up dropdown">
                 <a href="#" class="dropdown-toggle">
                     <span class="icon-search"></span>
@@ -64,13 +64,13 @@
                 <input type="text" placeholder="Name">
                 <input type="text" placeholder="Phone">
                 <input type="text" placeholder="Email">
-                <textarea name=""  placeholder="Massenge" cols="30"></textarea> 
+                <textarea name="message"  placeholder="Message" cols="30"></textarea>
                 <button type="submit">Send</button>
             </form>
         </div>
     </div> <!--  -->
     <main>
-        <section class="banner">
+        <div class="banner">
             <div class="banner-img">
                 <div class="item">
                     <img src="web/img/background.jpg" alt="">
@@ -85,8 +85,8 @@
                     <h1 class="title">Kuril Islands</h1>
                 </div>
             </div>
-        </section>
-        <section class="container">
+        </div>
+        <div class="container">
             <article class="article-description">
                 <h2 class="title">
                     The Kuril Islands or Kurile Islands in Russia's Sakhalin Oblast region, form a volcanic archipelago that stretches approximately 1,300 km (810 mi) northeast from Hokkaido, Japan, to Kamchatka, Russia, separating the Sea of Okhotsk from the North Pacific Ocean
@@ -102,19 +102,21 @@
                 </p>
             </article>
             <article class="comment">
-                <p>Those inhabitants however, though they’ve quite a bit to be disgruntled about, are exceptionally good-natured. Perhaps it comes from having to get along and help one another in this harsh environment.</p>
+                <h2>Those inhabitants however, though they’ve quite a bit to be disgruntled about, are exceptionally
+                    good-natured. Perhaps it comes from having to get along and help one another in this harsh
+                    environment.</h2>
                 <div class="author">
                     <span>Danila Antsiferov</span>
                 </div>
             </article>
-        </section>
+        </div>
         <section>
-            <article class="additional-description container">
+            <div class="additional-description container">
                 <h2 class="title">
                     List of main islands
                 </h2>
                 <p>While in Russian sources the islands are mentioned for the first time in 1646, the earliest detailed information about them was provided by the explorer Vladimir Atlasov in 1697. </p>
-            </article>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -163,9 +165,11 @@
                     </tr>
                 </tbody>
             </table>
-            <article class="additional-description container">
-                <p>In the 18th and early 19th centuries, the Kuril Islands were explored by Danila Antsiferov, I. Kozyrevsky, Ivan Yevreinov, Fyodor Luzhin, Martin Shpanberg, Adam Johann von Krusenstern, Vasily Golovnin, and Henry James Snow.</p>
-            </article>
+            <div class="additional-description container">
+                <h4>In the 18th and early 19th centuries, the Kuril Islands were explored by Danila Antsiferov, I.
+                    Kozyrevsky, Ivan Yevreinov, Fyodor Luzhin, Martin Shpanberg, Adam Johann von Krusenstern, Vasily
+                    Golovnin, and Henry James Snow.</h4>
+            </div>
         </section>
         <section class="latest_posts">
             <div class="list">
@@ -209,7 +213,7 @@
     </main>
     <footer>
         <nav>
-            <menu>
+            <ul class="navbar">
                 <li>
                     <a href="#">About</a>
                 </li>
@@ -225,7 +229,7 @@
                 <li>
                     <a href="#">Contact us</a>
                 </li>
-            </menu>
+            </ul>
             <div class="social-network">
                 <a href="#">
                     <span class="icon-facebook">
