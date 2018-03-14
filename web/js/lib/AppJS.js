@@ -19,14 +19,15 @@ var AppJS = {
     },
     init:function(){$(document).ready(AppJS.ready);},
     hundlers : {
-        "body:click"                        : function(e){ AppJS.clickBody(e); },
-        "[href]:click"                      : function(e){ e.preventDefault();/*AppJS.clickHref(e, this);*/},
-        ".dropdown-toggle:click"            : function() { AppJS.DropDown(this);},
-        ".overley:click"                    : function() { AppJS.closeAllModal();},
-        ".close:click"                      : function() { AppJS.closeAllModal();},
-        ".navbar-toggle:click"              : function() { AppJS.NavBarCollapse(this);},
-        ".mdl:click"                        : function() { AppJS.ModalBox();},
-        "#contact input:input"              : function() { console.log();if($(this).val().length > 2){$(this).addClass("invalid");}else{$(this).removeClass("invalid");}} 
+        "body:click"                            : function(e){ AppJS.clickBody(e); },
+        "[href]:click"                          : function(e){ e.preventDefault();/*AppJS.clickHref(e, this);*/},
+        ".dropdown-toggle:click"                : function() { AppJS.DropDown(this);},
+        ".overley:click"                        : function() { AppJS.closeAllModal();},
+        ".close:click"                          : function() { AppJS.closeAllModal();},
+        ".navbar-toggle:click"                  : function() { AppJS.NavBarCollapse(this);},
+        ".mdl:click"                            : function() { AppJS.ModalBox();},
+        ".search_pop-up .dropdown-toggle:click" : function() { $(".open").addClass("open"); $(".navbar-collapse").fadeOut("fast");},
+        "#contact input:input"                  : function() { console.log();if($(this).val().length > 2){$(this).addClass("invalid");}else{$(this).removeClass("invalid");}} 
     },
     NavBarCollapse : function(elem){
         var el = $(elem);
@@ -38,7 +39,6 @@ var AppJS = {
             el.addClass("open");
             el.closest("nav").find(".navbar-collapse").fadeIn();
         }
-
     },
     ModalBox: function(){
 	     AppJS.closeAllModal();
@@ -67,10 +67,10 @@ var AppJS = {
             $('.dropdown-menu').fadeOut();
           }
           if($(window).width() < 992){
-              if (!$(e.target).closest("nav").length) {
-                $('.navbar-collapse').fadeOut();
-                $(".open").removeClass("open");
-              }
+                if (!$(e.target).closest("nav").length) {
+                    $('.navbar-collapse').fadeOut();
+                    $(".open").removeClass("open");
+                }
           }
           e.stopPropagation();
     },
@@ -86,7 +86,6 @@ var AppJS = {
         }
     },
     DropDown: function(el){
-        AppJS.closeAllModal();
         $(".dropdown-menu:visible").fadeOut();
         if($(el).closest(".dropdown").find(".dropdown-menu:visible").length){
             $(el).closest(".dropdown").find(".dropdown-menu").fadeOut();

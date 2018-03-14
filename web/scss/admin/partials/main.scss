@@ -197,7 +197,7 @@ nav{
             height: 100vh;
             z-index: 100;
             background-color: #fff;
-            & > li{
+            & li{
                 display: flex;
                 flex-direction: column;
                 a{
@@ -640,7 +640,7 @@ footer{
         nav{
             flex-direction: column;
         }
-        ul{
+        nav > ul{
             display:flex;
             justify-content: space-around;
             flex-wrap:wrap;
