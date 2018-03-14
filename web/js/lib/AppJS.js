@@ -20,11 +20,12 @@ var AppJS = {
     init:function(){$(document).ready(AppJS.ready);},
     hundlers : {
         "body:click"                        : function(e){ AppJS.clickBody(e); },
-        "[href]:click"                      : function(e){ AppJS.clickHref(e, this);},
+        "[href]:click"                      : function(e){ e.preventDefault();/*AppJS.clickHref(e, this);*/},
         ".dropdown-toggle:click"            : function() { AppJS.DropDown(this);},
         ".overley:click"                    : function() { AppJS.closeAllModal();},
         ".close:click"                      : function() { AppJS.closeAllModal();},
         ".navbar-toggle:click"              : function() { AppJS.NavBarCollapse(this);},
+        ".mdl:click"                        : function() { AppJS.ModalBox();},
         "#contact input:input"              : function() { console.log();if($(this).val().length > 2){$(this).addClass("invalid");}else{$(this).removeClass("invalid");}} 
     },
     NavBarCollapse : function(elem){
@@ -39,16 +40,22 @@ var AppJS = {
         }
 
     },
-    clickHref : function(e, el) {
-        var url = $(el).attr('href');
-        if( url.slice(0, 4) !== 'http'){
-            e.preventDefault();
-            AppJS.Rqst(url);
+    ModalBox: function(){
+        if(!$(".overley").length){
+            $("<div class='overley'></div>").appendTo('body');
+            $(".modal-contant").fadeIn("slow");
         }
     },
+    // clickHref : function(e, el) { //без локального сервера это тоже не нужно 
+    //     var url = $(el).attr('href');
+    //     if( url.slice(0, 4) !== 'http'){
+    //         e.preventDefault();
+    //         // AppJS.Rqst(url);
+    //     }
+    // },
     closeAllModal: function(){
         var el = $(".modal-contant, .dropdown-menu");
-        el.fadeOut("slow", function(){$(".overley").remove();});
+        el.fadeOut("fast", function(){$(".overley").remove();});
         if($(window).width() < 992){
             elMobl = $(".navbar-collapse");
             elMobl.fadeOut("slow", function(){$(".open").removeClass("open");});
@@ -86,24 +93,24 @@ var AppJS = {
             $(el).closest(".dropdown").find(".dropdown-menu").fadeIn();
         }
     },
-    Rqst: function(url){
-        $.ajax({ 
-            url: url,
-            success: function(res) {
-                console.log(res);
-                if($(res).hasClass("modal-contant")) {
-                    if(!$(".overley").length){
-                        AppJS.closeAllModal();
-                        $(res).appendTo('body');
-                        setTimeout(function(){
-                            $(".modal-contant").fadeIn("slow");
-                        },100);
-                        $("<div class='overley'></div>").appendTo('body');
-                    }
-                }
-            }
-        });
-        return false;
-    },
+    // Rqst: function(url){  //вернуть вьюху модалки когд аесть сервер илм локальный сервер
+    //     $.ajax({ 
+    //         url: url,
+    //         success: function(res) {
+    //             console.log(res);
+    //             if($(res).hasClass("modal-contant")) {
+    //                 if(!$(".overley").length){
+    //                     AppJS.closeAllModal();
+    //                     $(res).appendTo('body');
+    //                     setTimeout(function(){
+    //                         $(".modal-contant").fadeIn("slow");
+    //                     },100);
+    //                     $("<div class='overley'></div>").appendTo('body');
+    //                 }
+    //             }
+    //         }
+    //     });
+    //     return false;
+    // },
 }
 AppJS.init();

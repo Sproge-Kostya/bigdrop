@@ -11,7 +11,7 @@
 <body>
     <header>
         <a href="#" class="logo">
-            <img src="web/img/logo.svg" alt="">
+            <img src="web/img/logo.svg" alt="#">
         </a>
         <nav>
             <button class="navbar-toggle">
@@ -36,7 +36,7 @@
                     <a href="#">resources</a>
                 </li>
                 <li>
-                    <a href="view/modal/contact.php">Contact us</a>
+                    <a class="mdl" href="view/modal/contact.php">Contact us</a>
                 </li>
             </menu>
             <div class="search_pop-up dropdown">
@@ -54,6 +54,21 @@
             </div>
         </nav>
     </header>
+    <div class="modal-contant" style="display: none;"> <!-- У Александры нет локального сервера, жаль, вообще вьюха ajax-ом приходила -->
+        <button class="close"></button>
+        <div class="modal-img">
+        </div>
+        <div class="modal-body">
+            <h2 class="title">Contact us</h2>
+            <form action="#" id="contact">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Phone">
+                <input type="text" placeholder="Email">
+                <textarea name=""  placeholder="Massenge" cols="30"></textarea> 
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div> <!--  -->
     <main>
         <section class="banner">
             <div class="banner-img">
@@ -160,7 +175,7 @@
                 <ul>
                     <li class="item">
                         <div class="img-item">
-                            <img src="http://bipbap.ru/wp-content/uploads/2017/05/3afdfe92.jpg" alt="">
+                            <img src="http://bipbap.ru/wp-content/uploads/2017/05/3afdfe92.jpg" alt="#">
                         </div>
                         <div class="description">
                             <a href="#" class="category">Travel</a>
@@ -170,7 +185,7 @@
                     </li>
                     <li class="item">
                         <div class="img-item">
-                            <img src="http://bipbap.ru/wp-content/uploads/2017/05/3afdfe92.jpg" alt="">
+                            <img src="http://bipbap.ru/wp-content/uploads/2017/05/3afdfe92.jpg" alt="#">
                         </div>
                         <div class="description">
                             <a href="#" class="category">Travel</a>
@@ -180,7 +195,7 @@
                     </li>
                     <li class="item">
                         <div class="img-item">
-                            <img src="http://bipbap.ru/wp-content/uploads/2017/05/3afdfe92.jpg" alt="">
+                            <img src="http://bipbap.ru/wp-content/uploads/2017/05/3afdfe92.jpg" alt="#">
                         </div>
                         <div class="description">
                             <a href="#" class="category">Travel</a>
