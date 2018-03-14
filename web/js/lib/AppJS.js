@@ -47,8 +47,12 @@ var AppJS = {
         }
     },
     closeAllModal: function(){
-        var el = $(".modal-contant, .dropdown-menu, .navbar-collapse");
-        el.fadeOut("slow", function(){$(".overley").remove();$(".open").removeClass("open");});
+        var el = $(".modal-contant, .dropdown-menu");
+        el.fadeOut("slow", function(){$(".overley").remove();});
+        if($(window).width() < 992){
+            elMobl = $(".navbar-collapse");
+            elMobl.fadeOut("slow", function(){$(".open").removeClass("open");});
+        }        
     },
     clickBody: function(e) {
           if (!$(e.target).closest(".dropdown").length) {
